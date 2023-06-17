@@ -5,18 +5,15 @@ import (
 	"log"
 
 	"example.com/go_functions"
-
 	"github.com/GoogleCloudPlatform/functions-framework-go/funcframework"
 )
 
 func main() {
 
 	ctx := context.Background()
+	tweet := go_functions.Tweet
 
-	hello := go_functions.HelloWorld
-
-	// 実行する関数の登録
-	if err := funcframework.RegisterHTTPFunctionContext(ctx, "/", hello); err != nil {
+	if err := funcframework.RegisterHTTPFunctionContext(ctx, "/", tweet); err != nil {
 		log.Fatalf("funcframework.RegisterHTTPFunctionContext: %v\n", err)
 	}
 
